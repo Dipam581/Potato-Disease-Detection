@@ -2,3 +2,6 @@ tensorflow
 scikit-learn
 numpy
 pandas
+ipykernel
+matplotlib
+Pillow
