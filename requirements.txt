@@ -5,3 +5,7 @@ pandas
 ipykernel
 matplotlib
 Pillow
+
+fastapi[standard]
+uvicorn
+jinja2

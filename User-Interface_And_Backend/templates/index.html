@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Potato Disease Predictor</title>
+  </head>
+  <body>
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+      <div class="container-fluid" style="padding: 9rem;">
+        <div class="mb-4 d-flex justify-content-center">
+          <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+            alt="example placeholder" style="width: 300px;" />
+        </div>
+        <div class="d-flex justify-content-center">
+          <div data-mdb-ripple-init class="btn btn-primary btn-rounded mb-2">
+            <label class="form-label text-white m-1" for="customFile1">Choose file</label>
+            <input type="file" name="files" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
+          </div>
+          <div class="col-auto" style="margin-left: 7rem;">
+            <button type="submit" class="btn btn-success mb-3">predict</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+
+  <script>
+    function displaySelectedImage(event, elementId) {
+      const selectedImage = document.getElementById(elementId);
+      const fileInput = event.target;
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          selectedImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    }
+  </script>
+</html>
